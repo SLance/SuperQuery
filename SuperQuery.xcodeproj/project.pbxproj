@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E26FE1F1D2F859A0047E877 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26FE1E1D2F859A0047E877 /* MainViewController.swift */; };
 		7E26FE211D2F90A50047E877 /* IPAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26FE201D2F90A50047E877 /* IPAddressViewController.swift */; };
+		7E8557C31D34E4BA006AA578 /* MobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8557C21D34E4BA006AA578 /* MobileViewController.swift */; };
 		7EADD9CD1D24D0F300718D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADD9CC1D24D0F300718D7D /* AppDelegate.swift */; };
 		7EADD9D21D24D0F300718D7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EADD9D01D24D0F300718D7D /* Main.storyboard */; };
 		7EADD9D41D24D0F300718D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EADD9D31D24D0F300718D7D /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		2751FE8FF1B2A41527FE24F3 /* Pods-SuperQuery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperQuery.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperQuery/Pods-SuperQuery.release.xcconfig"; sourceTree = "<group>"; };
 		7E26FE1E1D2F859A0047E877 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7E26FE201D2F90A50047E877 /* IPAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddressViewController.swift; sourceTree = "<group>"; };
+		7E8557C21D34E4BA006AA578 /* MobileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileViewController.swift; sourceTree = "<group>"; };
 		7EADD9C91D24D0F300718D7D /* SuperQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EADD9CC1D24D0F300718D7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EADD9D11D24D0F300718D7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				7E26FE1E1D2F859A0047E877 /* MainViewController.swift */,
 				7E26FE201D2F90A50047E877 /* IPAddressViewController.swift */,
+				7E8557C21D34E4BA006AA578 /* MobileViewController.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8557C31D34E4BA006AA578 /* MobileViewController.swift in Sources */,
 				7E26FE211D2F90A50047E877 /* IPAddressViewController.swift in Sources */,
 				7EADD9CD1D24D0F300718D7D /* AppDelegate.swift in Sources */,
 				7E26FE1F1D2F859A0047E877 /* MainViewController.swift in Sources */,
