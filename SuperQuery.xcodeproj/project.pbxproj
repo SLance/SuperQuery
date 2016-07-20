@@ -240,6 +240,7 @@
 				TargetAttributes = {
 					7EADD9C81D24D0F300718D7D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZZG7HSB6RX;
 					};
 					7EADD9DC1D24D0F300718D7D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -501,10 +502,13 @@
 			baseConfigurationReference = CD2D9D40D0CAD98D2427EE45 /* Pods-SuperQuery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperQuery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lance.SuperQuery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -513,10 +517,13 @@
 			baseConfigurationReference = 2751FE8FF1B2A41527FE24F3 /* Pods-SuperQuery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperQuery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lance.SuperQuery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
