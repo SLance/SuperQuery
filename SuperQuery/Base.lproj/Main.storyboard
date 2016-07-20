@@ -77,6 +77,26 @@
                                             <segue destination="nQZ-Ej-7fe" kind="show" id="uep-A7-gwg"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="X6q-ZJ-xUS" style="IBUITableViewCellStyleDefault" id="JeS-DI-ly9">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JeS-DI-ly9" id="OXu-rD-bXa">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="邮编查询" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X6q-ZJ-xUS">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="bSh-nb-Avh" kind="show" id="SKF-gN-ozV"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -277,6 +297,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kek-wi-Xiw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="877"/>
+        </scene>
+        <!--邮编查询-->
+        <scene sceneID="v8H-AF-fko">
+            <objects>
+                <viewController id="bSh-nb-Avh" customClass="PostcodeViewController" customModule="SuperQuery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jkM-Xe-4su"/>
+                        <viewControllerLayoutGuide type="bottom" id="cfJ-Dq-yNf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AyU-a0-dQb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eod-nb-Tr1">
+                                <rect key="frame" x="550" y="84" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="pqX-lr-HjF"/>
+                                </constraints>
+                                <state key="normal" title="查询"/>
+                                <connections>
+                                    <action selector="checkButton_touch:" destination="bSh-nb-Avh" eventType="touchUpInside" id="fRh-Id-Rud"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xK-h7-6oC">
+                                <rect key="frame" x="20" y="122" width="560" height="458"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sa-yH-g4l">
+                                <rect key="frame" x="20" y="84" width="522" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8xK-h7-6oC" firstAttribute="leading" secondItem="AyU-a0-dQb" secondAttribute="leadingMargin" id="8cN-t9-sY9"/>
+                            <constraint firstItem="5sa-yH-g4l" firstAttribute="top" secondItem="jkM-Xe-4su" secondAttribute="bottom" constant="20" id="DrF-Rl-tGC"/>
+                            <constraint firstItem="cfJ-Dq-yNf" firstAttribute="top" secondItem="8xK-h7-6oC" secondAttribute="bottom" constant="20" id="HXV-hr-m0j"/>
+                            <constraint firstItem="8xK-h7-6oC" firstAttribute="top" secondItem="5sa-yH-g4l" secondAttribute="bottom" constant="8" id="MHP-hD-SHZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5sa-yH-g4l" secondAttribute="leading" id="Mjg-i4-7fY"/>
+                            <constraint firstItem="8xK-h7-6oC" firstAttribute="trailing" secondItem="AyU-a0-dQb" secondAttribute="trailingMargin" id="N28-ZR-6Xc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eod-nb-Tr1" secondAttribute="trailing" id="XMd-Fc-ktn"/>
+                            <constraint firstItem="eod-nb-Tr1" firstAttribute="leading" secondItem="5sa-yH-g4l" secondAttribute="trailing" constant="8" id="ZZ7-bg-Pyb"/>
+                            <constraint firstItem="eod-nb-Tr1" firstAttribute="centerY" secondItem="5sa-yH-g4l" secondAttribute="centerY" id="nYc-Xp-wOG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="邮编查询" id="3L1-ta-CPs"/>
+                    <connections>
+                        <outlet property="postcodeTextField" destination="5sa-yH-g4l" id="nBY-aW-Svq"/>
+                        <outlet property="resultTextView" destination="8xK-h7-6oC" id="J18-Kh-X1L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmO-Yo-e9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1629" y="-439"/>
         </scene>
     </scenes>
 </document>
