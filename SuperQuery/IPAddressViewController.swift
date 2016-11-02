@@ -38,28 +38,27 @@ class IPAddressViewController: UIViewController {
     }
     */
     
-    @IBAction func checkButton_touch(sender: AnyObject) {
+    @IBAction func checkButton_touch(_ sender: AnyObject) {
         let ip = self.ipAddressTextField.text!
         if ip == "" {
             return;
         }
-        let match = ip.rangeOfString(ipRegex, options: .RegularExpressionSearch)
-        if match == nil {
+        if ip.range(of: ipRegex, options: .regularExpression) == nil {
             self.resultTextView.text = "错误的IP地址"
             return;
         }
-        Alamofire.request(.POST,
-            "https://apis.juhe.cn/ip/ip2addr",
-            parameters: [ "key" : "8c196438d0a6628c68700e8c28ed879b", "ip" : ip ])
+        Alamofire.request("https://apis.juhe.cn/ip/ip2addr",
+                          method: .post,
+                          parameters: [ "key" : "8c196438d0a6628c68700e8c28ed879b", "ip" : ip ])
             .validate(contentType: ["application/json"])
             .responseJSON { (response) in
                 switch response.result {
-                case .Success:
-                    if response.result.value!["result"]! != nil {
-                        let result: [String: AnyObject] = response.result.value!["result"] as! [String: AnyObject]
+                case .success:
+                    if (response.result.value as AnyObject!)["result"]! != nil {
+                        let result: [String: AnyObject] = (response.result.value as AnyObject!)["result"] as! [String: AnyObject]
                         self.resultTextView.text = "区域：\(result["area"]!)\n位置：\(result["location"]!)"
                     }
-                case .Failure(let error):
+                case .failure(let error):
                     print(error)
                 }
         }

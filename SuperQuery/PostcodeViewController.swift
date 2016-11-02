@@ -38,32 +38,31 @@ class PostcodeViewController: UIViewController {
     }
     */
     
-    @IBAction func checkButton_touch(sender: AnyObject) {
+    @IBAction func checkButton_touch(_ sender: AnyObject) {
         let postcode = self.postcodeTextField.text!
         if postcode == "" {
             return;
         }
-        let match = postcode.rangeOfString(postcodeRegex, options: .RegularExpressionSearch)
-        if match == nil {
+        if postcode.range(of: postcodeRegex, options: .regularExpression) == nil {
             self.resultTextView.text = "错误的邮编号码"
             return;
         }
-        Alamofire.request(.POST,
-            "https://v.juhe.cn/postcode/query",
-            parameters: [ "key" : "eeaa47d81c9f866142a957b4fe84cb6c", "postcode" : postcode ])
+        Alamofire.request("https://v.juhe.cn/postcode/query",
+                          method: .post,
+                          parameters: [ "key" : "eeaa47d81c9f866142a957b4fe84cb6c", "postcode" : postcode ])
             .validate(contentType: ["application/json"])
             .responseJSON { (response) in
                 switch response.result {
-                case .Success:
-                    if let result = response.result.value!["result"]! {
-                        if let list: [AnyObject] = result["list"]! as? [AnyObject] {
+                case .success:
+                    if let result = (response.result.value as AnyObject!)["result"]! {
+                        if let list: [AnyObject] = (result as AnyObject!)["list"]! as? [AnyObject] {
                             for data in list {
                                 self.resultTextView.text! += "邮编号码：\(data["PostNumber"]!!)\n省份：\(data["Province"]!!)\n城市：\(data["City"]!!)\n区/县/乡：\(data["District"]!!)\n地址：\(data["Address"]!!)\n\n"
                             
                             }
                         }
                     }
-                case .Failure(let error):
+                case .failure(let error):
                     print(error)
                 }
         }

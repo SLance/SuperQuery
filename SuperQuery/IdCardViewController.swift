@@ -38,28 +38,27 @@ class IdCardViewController: UIViewController {
     }
     */
     
-    @IBAction func checkButton_touch(sender: AnyObject) {
+    @IBAction func checkButton_touch(_ sender: AnyObject) {
         let cardno = self.idCardTextField.text!
         if cardno == "" {
             return;
         }
-        let match = cardno.rangeOfString(idCardRegex, options: .RegularExpressionSearch)
-        if match == nil {
+        if cardno.range(of: idCardRegex, options: .regularExpression) == nil {
             self.resultTextView.text = "错误的身份证号"
             return;
         }
-        Alamofire.request(.GET,
-            "https://apis.juhe.cn/idcard/index",
-            parameters: [ "key" : "0cdc122fc90501c7bc163b54cf44a017", "cardno" : cardno ])
+        Alamofire.request("https://apis.juhe.cn/idcard/index",
+                          method: .get,
+                          parameters: [ "key" : "0cdc122fc90501c7bc163b54cf44a017", "cardno" : cardno ])
             .validate(contentType: ["application/json"])
             .responseJSON { (response) in
                 switch response.result {
-                case .Success:
-                    if response.result.value!["result"]! != nil {
-                        let result: [String: AnyObject] = response.result.value!["result"] as! [String: AnyObject]
+                case .success:
+                    if (response.result.value as AnyObject!)["result"]! != nil {
+                        let result: [String: AnyObject] = (response.result.value as AnyObject!)["result"] as! [String: AnyObject]
                         self.resultTextView.text = "地区：\(result["area"]!)\n性别：\(result["sex"]!)\n出生日期：\(result["birthday"]!)"
                     }
-                case .Failure(let error):
+                case .failure(let error):
                     print(error)
                 }
         }
